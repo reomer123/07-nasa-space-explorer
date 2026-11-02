@@ -10,15 +10,15 @@ const gallery = document.getElementById('gallery');
 // - Restrict dates to NASA's image archive (starting from 1995)
 setupDateInputs(startInput, endInput);
 
-const apiKey = 'DEMO_KEY';
-
 getImagesButton.addEventListener('click', getSpaceImages);
 
 async function getSpaceImages() {
-    const startDate = startInput.value;
-    const endDate = endInput.value;
+    const startDate = format(startInput.value);
+    const endDate = format(endInput.value);
+    console.log(startDate);
+    console.log(endDate);
 
-    const apiUrl = `https://science.nasa.gov/wp-json/wp/v2/apod-basic/?api_key=${apiKey}&start_date=${startDate}&end_date=${endDate}`;
+    const apiUrl = `https://science.nasa.gov/wp-json/wp/v2/apod-basic?api_key=HKwf8tKbzjMbqpHbNPKftMjMgPcrcMFjBqJRGGMR&date_from=${startDate}&date_to=${endDate}`;
 
     try {
         gallery.innerHTML = '<p>Loading space images...</p>';
@@ -29,6 +29,7 @@ async function getSpaceImages() {
         }
 
         const apodItems = await response.json();
+        console.log(apodItems);
         gallery.innerHTML = '';
         apodItems.forEach(item => {
           if (item.media_type !== 'image') {
@@ -58,4 +59,11 @@ async function getSpaceImages() {
         console.error('Error:', error);
         gallery.innerHTML = '<p>Something went wrong loading the images. Please try again.</p>';
     }
+}
+
+// Needed to use date format YYMMDD instead of YYYY-MM-DD for the API to be fetched
+function format(date) {
+  let dashless = date.replaceAll("-", "");
+  dashless = dashless.slice(2);
+  return dashless;
 }

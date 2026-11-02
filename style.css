@@ -125,9 +125,14 @@ button:hover {
 }
 
 .gallery-item p {
-  margin-top: 10px;
-  padding: 5px;
+  margin: 5px 0;
   font-size: 14px;
+}
+
+.gallery-item h3 {
+  margin-top: 5px;
+  color: #dc3329;
+  font-weight: bold;
 }
 
 /* Placeholder content */
