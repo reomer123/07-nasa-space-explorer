@@ -18,7 +18,7 @@ async function getSpaceImages() {
     const startDate = startInput.value;
     const endDate = endInput.value;
 
-    const apiUrl = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}&start_date=${startDate}&end_date=${endDate}`;
+    const apiUrl = `https://science.nasa.gov/wp-json/wp/v2/apod-basic/?api_key=${apiKey}&start_date=${startDate}&end_date=${endDate}`;
 
     try {
         gallery.innerHTML = '<p>Loading space images...</p>';
@@ -38,7 +38,7 @@ async function getSpaceImages() {
           const galleryItem = document.createElement('div');
           galleryItem.classList.add('gallery-item');
           const img = document.createElement('img');
-          img.src = item.url;
+          img.src = item.hdurl;
           img.alt = item.title;
           const title = document.createElement('h3');
           title.textContent = item.title;
