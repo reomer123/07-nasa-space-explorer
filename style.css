@@ -94,6 +94,7 @@ button:hover {
   gap: 20px;
   padding: 20px;
   justify-content: center;
+  align-items: center;
 }
 
 /* Gallery items */
@@ -146,4 +147,78 @@ button:hover {
 .placeholder-icon {
   font-size: 48px;
   margin-bottom: 20px;
+}
+
+.modal-btn {
+  background-color: #d3d3d3;
+  width: auto;
+  align-self: center;
+  padding: 5px 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.modal-btn:hover {
+  background-color: #bfbfbf;
+}
+
+.image-modal {
+  position: fixed;
+  inset: 50% auto auto 50%;
+  transform: translate(-50%, -50%);
+  width: min(900px, calc(100% - 24px));
+  max-height: calc(100% - 24px);
+  overflow-y: auto;
+  padding: 16px;
+  border: none;
+  border-radius: 10px;
+  background: white;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.image-modal::backdrop {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.image-modal button {
+  width: auto;
+}
+
+.modal-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  padding: 4px 10px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  color: #212121;
+  font-size: 24px;
+  line-height: 1;
+}
+
+.modal-close:hover {
+  background: white;
+}
+
+.modal-image {
+  display: block;
+  width: 100%;
+  max-height: 60vh;
+  object-fit: contain;
+  margin-bottom: 12px;
+}
+
+.image-modal h2 {
+  margin: 0 32px 6px 0;
+  color: #dc3329;
+}
+
+.modal-date {
+  margin-bottom: 8px;
+  color: #666;
+}
+
+.modal-explanation {
+  line-height: 1.6;
 }
