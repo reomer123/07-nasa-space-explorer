@@ -45,7 +45,6 @@ async function getSpaceImages() {
             return;
           }
 
-          console.log(item);
           const galleryItem = document.createElement('div');
           galleryItem.classList.add('gallery-item');
           const img = document.createElement('img');
@@ -74,7 +73,6 @@ async function getSpaceImages() {
         }
 
     } catch (error) {
-        console.error('Error:', error);
         gallery.innerHTML = '<p>Something went wrong loading the images. Please try again.</p>';
     }
 }
